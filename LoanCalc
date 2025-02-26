@@ -1,0 +1,39 @@
+#Loan Eligibility Calculator
+MonthlySalary = float(input('How much do you earn monthly?\n'))
+LoanAmount = float(input('How much Loan are you applying for?\n'))
+LoanTenure = int(input('How long will the loan run for, in months?\n'))
+InterestRate = float(input('What is the Interest Rate?\n'))
+ExistingLoans = input('Do you have existing loans, Yes or No?\n')
+
+LoanDuration = LoanTenure/12
+TotalInterestRate = (InterestRate/100) * LoanDuration
+print('Total Interest Rate =', TotalInterestRate)
+TotalInterest = LoanAmount * TotalInterestRate
+print('Total Interest =', TotalInterest)
+MonthlyRepayment = (TotalInterest + LoanAmount)/LoanTenure
+print('Monthly Repayment =', MonthlyRepayment)
+DebtBurdenRatio = 0.5 * MonthlySalary
+print('Debt Burden Ratio =', DebtBurdenRatio)
+
+if ExistingLoans == 'Yes':
+    LoanCount = int(input('How many loans are you currently servicing?\n'))
+    CurrentRepaymentAmount = float(input('What is your total repayment amount for all your loans?\n'))
+    PlannedRepayment = CurrentRepaymentAmount + MonthlyRepayment
+    if PlannedRepayment < DebtBurdenRatio:
+        AvailableRepayment = DebtBurdenRatio - PlannedRepayment
+        AccessibleLoan = float(AvailableRepayment * LoanTenure)
+        print('You can get a loan of', AccessibleLoan , 'to be paid over a period of', LoanTenure , 'months')
+    else:
+        print('You are not eligible for the loan of', + LoanAmount)
+
+else:AccessibleLoan = float(0.5 * MonthlySalary)
+#print('You can proceed to the next stage')
+print('You can get a loan of', AccessibleLoan , 'to be paid over a period of', LoanTenure , 'months')
+
+#if PlannedRepayment < DebtBurdenRatio:
+#        AvailableRepayment = DebtBurdenRatio - PlannedRepayment
+#        AccessibleLoan = float(AvailableRepayment * LoanTenure)
+#        print('You can get a loan of', AccessibleLoan , 'to be paid over a period of', LoanTenure , 'months')
+#else:
+#    print('You are not eligible for the loan of', + LoanAmount)
+
