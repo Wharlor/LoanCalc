@@ -1,4 +1,9 @@
 #Loan Eligibility Calculator
+
+{}
+import time
+from termcolor import colored
+
 MonthlySalary = float(input('How much do you earn monthly?\n'))
 LoanAmount = float(input('How much Loan are you applying for?\n'))
 LoanTenure = int(input('How long will the loan run for, in months?\n'))
@@ -26,9 +31,9 @@ if ExistingLoans == 'Yes':
     else:
         print('You are not eligible for the loan of', + LoanAmount)
 
-else:AccessibleLoan = float(0.5 * MonthlySalary)
+else:AccessibleLoan = float(2 * MonthlySalary)
 #print('You can proceed to the next stage')
-print('You can get a loan of', AccessibleLoan , 'to be paid over a period of', LoanTenure , 'months')
+print('You can get a loan of', colored(AccessibleLoan, 'red'), 'to be paid over a period of', colored(LoanTenure ,'red'), 'months')
 
 #if PlannedRepayment < DebtBurdenRatio:
 #        AvailableRepayment = DebtBurdenRatio - PlannedRepayment
