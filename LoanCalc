@@ -4,7 +4,7 @@
 import time
 from termcolor import colored
 
-MonthlySalary = float(input('How much do you earn monthly?\n'))
+MonthlySalary = float(input(colored('How much do you earn monthly?\n', "blue")))
 LoanAmount = float(input('How much Loan are you applying for?\n'))
 LoanTenure = int(input('How long will the loan run for, in months?\n'))
 InterestRate = float(input('What is the Interest Rate?\n'))
